@@ -1,0 +1,163 @@
+--- Performance Log for Burma.xml (Copy-Pasted from Terminal output) from Program.cs
+
+Greedy: 4048
+
+
+----- NumAnts -----
+Running experiment over NumAnts, LB: 1, UB: 1000, Steps: 10
+
+With parameter NumAnts: 1 (Floored if param is int)
+Algorithm performance over 16 runs:
+Global Best: 3323       Average Best: 3354.5
+
+With parameter NumAnts: 100.9 (Floored if param is int)
+Algorithm performance over 16 runs:
+Global Best: 3323       Average Best: 3346.9375
+
+With parameter NumAnts: 200.8 (Floored if param is int)
+Algorithm performance over 16 runs:
+Global Best: 3323       Average Best: 3344.25
+
+With parameter NumAnts: 300.7 (Floored if param is int)
+Algorithm performance over 16 runs:
+Global Best: 3323       Average Best: 3339.8125
+
+With parameter NumAnts: 400.6 (Floored if param is int)
+Algorithm performance over 16 runs:
+Global Best: 3323       Average Best: 3338.5625
+
+With parameter NumAnts: 500.5 (Floored if param is int)
+Algorithm performance over 16 runs:
+Global Best: 3323       Average Best: 3336.9375
+
+With parameter NumAnts: 600.4 (Floored if param is int)
+Algorithm performance over 16 runs:
+Global Best: 3323       Average Best: 3337.5
+
+With parameter NumAnts: 700.30005 (Floored if param is int)
+Algorithm performance over 16 runs:
+Global Best: 3323       Average Best: 3336.3125
+
+With parameter NumAnts: 800.2001 (Floored if param is int)
+Algorithm performance over 16 runs:
+Global Best: 3323       Average Best: 3335.25
+
+With parameter NumAnts: 900.1001 (Floored if param is int)
+Algorithm performance over 16 runs:
+Global Best: 3323       Average Best: 3337.5
+
+With parameter NumAnts: 1000.0001 (Floored if param is int)
+Algorithm performance over 16 runs:
+Global Best: 3323       Average Best: 3337.6875
+
+
+----- NumIterations -----
+Running experiment over NumIterations, LB: 1, UB: 10000, Steps: 10
+
+With parameter NumIterations: 1 (Floored if param is int)
+Algorithm performance over 16 runs:
+Global Best: 3920       Average Best: 4238.0625
+
+With parameter NumIterations: 1000.9 (Floored if param is int)
+Algorithm performance over 16 runs:
+Global Best: 3336       Average Best: 3350.5
+
+With parameter NumIterations: 2000.8 (Floored if param is int)
+Algorithm performance over 16 runs:
+Global Best: 3323       Average Best: 3348.375
+
+With parameter NumIterations: 3000.7002 (Floored if param is int)
+Algorithm performance over 16 runs:
+Global Best: 3323       Average Best: 3346.625
+
+With parameter NumIterations: 4000.6 (Floored if param is int)
+Algorithm performance over 16 runs:
+Global Best: 3323       Average Best: 3344.125
+
+With parameter NumIterations: 5000.5 (Floored if param is int)
+Algorithm performance over 16 runs:
+Global Best: 3323       Average Best: 3347.3125
+
+With parameter NumIterations: 6000.4 (Floored if param is int)
+Algorithm performance over 16 runs:
+Global Best: 3323       Average Best: 3345.1875
+
+With parameter NumIterations: 7000.3 (Floored if param is int)
+Algorithm performance over 16 runs:
+Global Best: 3323       Average Best: 3343.8125
+
+With parameter NumIterations: 8000.1997 (Floored if param is int)
+Algorithm performance over 16 runs:
+Global Best: 3323       Average Best: 3345.1875
+
+With parameter NumIterations: 9000.1 (Floored if param is int)
+Algorithm performance over 16 runs:
+Global Best: 3336       Average Best: 3351.5625
+
+With parameter NumIterations: 10000 (Floored if param is int)
+Algorithm performance over 16 runs:
+Global Best: 3323       Average Best: 3342.875
+
+
+----- NumIterations: Additional Test from 1-1000 -----
+Running experiment over NumIterations, LB: 1, UB: 1000, Steps: 10
+
+With parameter NumIterations: 1 (Floored if param is int)
+Algorithm performance over 16 runs:
+Global Best: 3861       Average Best: 4211.9375
+
+With parameter NumIterations: 100.9 (Floored if param is int)
+Algorithm performance over 16 runs:
+Global Best: 3336       Average Best: 3354.5625
+
+With parameter NumIterations: 200.8 (Floored if param is int)
+Algorithm performance over 16 runs:
+Global Best: 3323       Average Best: 3344.125
+
+With parameter NumIterations: 300.7 (Floored if param is int)
+Algorithm performance over 16 runs:
+Global Best: 3336       Average Best: 3346.375
+
+With parameter NumIterations: 400.6 (Floored if param is int)
+Algorithm performance over 16 runs:
+Global Best: 3336       Average Best: 3350.6875
+
+With parameter NumIterations: 500.5 (Floored if param is int)
+Algorithm performance over 16 runs:
+Global Best: 3336       Average Best: 3353.625
+
+With parameter NumIterations: 600.4 (Floored if param is int)
+Algorithm performance over 16 runs:
+Global Best: 3323       Average Best: 3345.875
+
+With parameter NumIterations: 700.30005 (Floored if param is int)
+Algorithm performance over 16 runs:
+Global Best: 3336       Average Best: 3348.6875
+
+With parameter NumIterations: 800.2001 (Floored if param is int)
+Algorithm performance over 16 runs:
+Global Best: 3323       Average Best: 3347.625
+
+With parameter NumIterations: 900.1001 (Floored if param is int)
+Algorithm performance over 16 runs:
+Global Best: 3336       Average Best: 3343.5
+
+With parameter NumIterations: 1000.0001 (Floored if param is int)
+Algorithm performance over 16 runs:
+Global Best: 3336       Average Best: 3347
+
+
+----- Variation -----
+Running experiment over Algorithm Variation
+
+Variation: Standard
+Algorithm performance over 16 runs:
+Global Best: 3323       Average Best: 3353.0625
+
+Variation: Elitist
+Algorithm performance over 16 runs:
+Global Best: 3336       Average Best: 3357.5
+
+Variation: MMAS
+Algorithm performance over 16 runs:
+Global Best: 3390       Average Best: 3546.25
