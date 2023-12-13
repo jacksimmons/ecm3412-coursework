@@ -1,0 +1,174 @@
+--- Performance Log for Burma.xml (Copy-Pasted from Terminal output) from Program.cs
+
+Greedy: 4048
+
+
+----- NumAnts -----
+Running experiment over NumAnts, LB: 1, UB: 1000, Steps: 10
+
+With parameter NumAnts: 1 (Floored if param is int)
+Algorithm performance over 16 runs:
+Global Best: 3323       Average Best: 3354.5
+
+With parameter NumAnts: 100.9 (Floored if param is int)
+Algorithm performance over 16 runs:
+Global Best: 3323       Average Best: 3346.9375
+
+With parameter NumAnts: 200.8 (Floored if param is int)
+Algorithm performance over 16 runs:
+Global Best: 3323       Average Best: 3344.25
+
+With parameter NumAnts: 300.7 (Floored if param is int)
+Algorithm performance over 16 runs:
+Global Best: 3323       Average Best: 3339.8125
+
+With parameter NumAnts: 400.6 (Floored if param is int)
+Algorithm performance over 16 runs:
+Global Best: 3323       Average Best: 3338.5625
+
+With parameter NumAnts: 500.5 (Floored if param is int)
+Algorithm performance over 16 runs:
+Global Best: 3323       Average Best: 3336.9375
+
+With parameter NumAnts: 600.4 (Floored if param is int)
+Algorithm performance over 16 runs:
+Global Best: 3323       Average Best: 3337.5
+
+With parameter NumAnts: 700.30005 (Floored if param is int)
+Algorithm performance over 16 runs:
+Global Best: 3323       Average Best: 3336.3125
+
+With parameter NumAnts: 800.2001 (Floored if param is int)
+Algorithm performance over 16 runs:
+Global Best: 3323       Average Best: 3335.25
+
+With parameter NumAnts: 900.1001 (Floored if param is int)
+Algorithm performance over 16 runs:
+Global Best: 3323       Average Best: 3337.5
+
+With parameter NumAnts: 1000.0001 (Floored if param is int)
+Algorithm performance over 16 runs:
+Global Best: 3323       Average Best: 3337.6875
+
+
+----- NumIterations -----
+Running experiment over NumIterations, LB: 1, UB: 1001, Steps: 10
+
+With parameter NumIterations: 1 (Floored if param is int)
+Algorithm performance over 16 runs:
+Global Best: 4011       Average Best: 4240.625
+
+With parameter NumIterations: 101 (Floored if param is int)
+Algorithm performance over 16 runs:
+Global Best: 3336       Average Best: 3357.0625
+
+With parameter NumIterations: 201 (Floored if param is int)
+Algorithm performance over 16 runs:
+Global Best: 3323       Average Best: 3352.125
+
+With parameter NumIterations: 301 (Floored if param is int)
+Algorithm performance over 16 runs:
+Global Best: 3323       Average Best: 3348
+
+With parameter NumIterations: 401 (Floored if param is int)
+Algorithm performance over 16 runs:
+Global Best: 3323       Average Best: 3347.75
+
+With parameter NumIterations: 501 (Floored if param is int)
+Algorithm performance over 16 runs:
+Global Best: 3323       Average Best: 3349.9375
+
+With parameter NumIterations: 601 (Floored if param is int)
+Algorithm performance over 16 runs:
+Global Best: 3323       Average Best: 3342.25
+
+With parameter NumIterations: 701 (Floored if param is int)
+Algorithm performance over 16 runs:
+Global Best: 3336       Average Best: 3348.5
+
+With parameter NumIterations: 801 (Floored if param is int)
+Algorithm performance over 16 runs:
+Global Best: 3323       Average Best: 3344.25
+
+With parameter NumIterations: 901 (Floored if param is int)
+Algorithm performance over 16 runs:
+Global Best: 3336       Average Best: 3348.4375
+
+With parameter NumIterations: 1001 (Floored if param is int)
+Algorithm performance over 16 runs:
+Global Best: 3323       Average Best: 3345.9375
+
+
+----- Variation -----
+Running experiment over Algorithm Variation
+
+Variation: Standard
+Algorithm performance over 16 runs:
+Global Best: 3323       Average Best: 3353.0625
+
+Variation: Elitist
+Algorithm performance over 16 runs:
+Global Best: 3336       Average Best: 3357.5
+
+Variation: MMAS
+Algorithm performance over 16 runs:
+Global Best: 3390       Average Best: 3546.25
+
+
+----- Pheromone Evaporation Rate -----
+(Did not copy here)
+
+
+----- Heuristic -----
+Running experiment over Heuristic Function
+
+Heuristic: 1/d
+Algorithm performance over 16 runs:
+Global Best: 3323       Average Best: 3360.9375
+
+Heuristic: Q/d
+Running experiment over PheromoneImportance, LB: 0.1, UB: 10, Steps: 10
+
+With parameter PheromoneImportance: 0.1 (Floored if param is int)
+Algorithm performance over 16 runs:
+Global Best: 3323       Average Best: 3355.9375
+
+With parameter PheromoneImportance: 1.0899999 (Floored if param is int)
+Algorithm performance over 16 runs:
+Global Best: 3336       Average Best: 3350.75
+
+With parameter PheromoneImportance: 2.08 (Floored if param is int)
+Algorithm performance over 16 runs:
+Global Best: 3323       Average Best: 3351.375
+
+With parameter PheromoneImportance: 3.07 (Floored if param is int)
+Algorithm performance over 16 runs:
+Global Best: 3336       Average Best: 3348.5625
+
+With parameter PheromoneImportance: 4.06 (Floored if param is int)
+Algorithm performance over 16 runs:
+Global Best: 3336       Average Best: 3350.625
+
+With parameter PheromoneImportance: 5.0499997 (Floored if param is int)
+Algorithm performance over 16 runs:
+Global Best: 3323       Average Best: 3348.0625
+
+With parameter PheromoneImportance: 6.0399995 (Floored if param is int)
+Algorithm performance over 16 runs:
+Global Best: 3323       Average Best: 3354.125
+
+With parameter PheromoneImportance: 7.0299993 (Floored if param is int)
+Algorithm performance over 16 runs:
+Global Best: 3323       Average Best: 3360.625
+
+With parameter PheromoneImportance: 8.0199995 (Floored if param is int)
+Algorithm performance over 16 runs:
+Global Best: 3336       Average Best: 3354.5625
+
+With parameter PheromoneImportance: 9.009999 (Floored if param is int)
+Algorithm performance over 16 runs:
+Global Best: 3336       Average Best: 3357.9375
+
+With parameter PheromoneImportance: 9.999999 (Floored if param is int)
+Algorithm performance over 16 runs:
+Global Best: 3336       Average Best: 3352.6875

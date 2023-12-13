@@ -6,14 +6,6 @@
 /// https://en.wikipedia.org/wiki/Ant_colony_optimization_algorithms
 
 
-public enum ACOVariation
-{
-    Standard,
-    Elitist,
-    MMAS,
-}
-
-
 /// <summary>
 /// A container for all of the ACO settings.
 /// Simplifies the constructor definition for <c>AntColony</c>.
@@ -26,13 +18,13 @@ public struct ACOSettings
     public int numAnts;
     public int requiredIterations;
 
-    public float pheroRandAdd;
-    public float pheroRandMult;
-
     // Constraints which affect exponents in the probability calculation
     // for an ant to traverse an edge.
     public float probPheroExponent; // Alpha
     public float probDesirabilityExponent; // Beta
+
+    public ACOHeuristic heuristic;
+    public float pheroImportance; // Q parameter if the heuristic used is Q/d.
 
     // The scale factor p, each pheromone is multiplied by (1-p) during evaporation.
     // Warning: Setting this too high causes a caught error - the pheromone gets so small
@@ -45,13 +37,12 @@ public struct ACOSettings
     public float pheroMin;
     public float pheroMax;
     
-    // Maximum number of iterations without a new global best before "stagnation" has occurred.
+    // Maximum number of fitness evaluations without a new global best before "stagnation" has occurred.
     // (Only in MMAS) When stagnation occurs, all edges are initialised with pheroMax pheromone.
-    public int maxStagnantIterations;
+    public int stagnantCountMax;
 
     // Whether to suppress prints to the console for this colony.
     public bool suppressPrints;
-
 }
 
 
@@ -75,10 +66,9 @@ public class AntColony
     private readonly int m_startVertex;
     protected readonly int m_numAnts;
     private readonly float m_pheroEvapRate; // (e) Rate of pheromone evaporation.
-    private readonly float m_pheroAddRate; // (Q) Pheromones are multiplied by Q/cost during pheromone update.
-    private readonly float m_pheroRandAdd;
-    private readonly float m_pheroRandMult;
+    private readonly float m_pheroImportance; // (Q) Pheromones are multiplied by Q/cost during pheromone update.
     private readonly int m_requiredIterations;
+    private readonly Func<float, float> m_heuristic;
 
     // Data matrices - these are separate as cost/pheromone are nearly always accessed separately
     // These matrices can be traversed both ways, and due to random pheromone both ways may have different costs.
@@ -90,16 +80,15 @@ public class AntColony
     public readonly float probDesirabilityExponent; // Beta in the next-edge-probability equation
 
     protected readonly Ant[] m_ants;
-
-    protected readonly float m_pheroMin;
-    protected readonly float m_pheroMax;
-
     protected readonly bool m_suppressPrints;
 
     // --- Normal Variables ---
-    // These variables need to be changed over the course of the program.
+    // These variables need to be changed over the course of the program, or are changed in a subclass.
     protected List<int> m_currentFittest;
     private float m_currentFittestFitness;
+
+    protected float m_pheroMin;
+    protected float m_pheroMax;
 
 
     // ====== Helper Functions ======
@@ -168,9 +157,7 @@ public class AntColony
         m_startVertex = settings.startVertex;
         m_numAnts = settings.numAnts;
         m_pheroEvapRate = settings.pheroEvapRate;
-        m_pheroAddRate = settings.pheroAddRate;
-        m_pheroRandAdd = settings.pheroRandAdd;
-        m_pheroRandMult = settings.pheroRandMult;
+        m_pheroImportance = settings.pheroImportance;
 
         distMatrix = distMat;
         numVertices = distMatrix.GetLength(0);
@@ -185,11 +172,23 @@ public class AntColony
 
         m_requiredIterations = settings.requiredIterations;
 
-        // Don't take the values from settings here
         m_pheroMin = 10e-6f;
         m_pheroMax = 10e6f;
 
         m_suppressPrints = settings.suppressPrints;
+
+        switch (settings.heuristic)
+        {
+            case ACOHeuristic.InverseDistance:
+                m_heuristic = (float dist) => 1 / dist;
+                break;
+            case ACOHeuristic.QOverDistance:
+                m_heuristic = (float dist) => settings.pheroImportance / dist;
+                break;
+            case ACOHeuristic.QSquaredOverDistance:
+                m_heuristic = (float dist) => MathF.Pow(settings.pheroImportance, 2) / dist;
+                break;
+        }
     }
 
 
@@ -207,7 +206,7 @@ public class AntColony
         // Construct all ants
         for (int i = 0; i < m_numAnts; i++)
         {
-            m_ants[i] = new(this, i, m_startVertex);
+            m_ants[i] = new(this, i, m_startVertex, m_heuristic);
         }
 
         return Run();
@@ -220,7 +219,7 @@ public class AntColony
     protected virtual void InitialisePheromone()
     {
         // Set each pheromone intensity to a random value
-        SetAllPheromone(() => rand.NextSingle() * m_pheroRandMult + m_pheroRandAdd);
+        SetAllPheromone(rand.NextSingle);
     }
 
 
@@ -229,7 +228,6 @@ public class AntColony
     /// </summary>
     protected void SetAllPheromone(Func<float> func)
     {
-        // Apply random pheromone in the range [0, 1) to each valid edge.
         ForEachMatrixIndex((int i, int j) => {
             if (distMatrix[i, j] == -1) return;
             pheroMatrix[i, j] = func();
@@ -246,12 +244,14 @@ public class AntColony
         // Iteration number. Incremented after every ant path completion.
         for (int i = 0; i < m_requiredIterations; i++)
         {
-            // Ant traversal
+            // Ant traversal - generate a path for each ant in the population.
             for (int a = 0; a < m_numAnts; a++)
             {
+                // Get the ant to find a new path - this function is recursive and will not terminate
+                // until it has found a new path.
                 m_ants[a].Traverse();
 
-                // Determine whether path is best so far.
+                // Determine whether the path is the best one so far.
                 // Update the current best path, if so.
                 List<int> foundPath = m_ants[a].GetPath();
                 float foundPathCost = CalculateCost(foundPath);
@@ -267,7 +267,7 @@ public class AntColony
             // Copy the current fittest list before resetting
             CopyFittest();
 
-            // Reset paths
+            // Reset paths for the next iteration
             for (int a = 0; a < m_numAnts; a++)
             {
                 m_ants[a].ResetPath();
@@ -277,12 +277,11 @@ public class AntColony
         // Return the fittest path and its cost
         if (!m_suppressPrints)
         {
-            Console.WriteLine("Fittest path found:");
+            Console.WriteLine($"Fittest path found:");
             for (int i = 0; i < m_currentFittest.Count; i++)
             {
                 Console.WriteLine($"\tVertex {m_currentFittest[i]}");
             }
-            PrintAllEntries(pheroMatrix);
         }
         return m_currentFittestFitness;
     }
@@ -353,7 +352,7 @@ public class AntColony
 
         for (int i = 1; i < path.Count; i++)
         {
-            pheroMatrix[path[i - 1], path[i]] += m_pheroAddRate / cost;
+            pheroMatrix[path[i - 1], path[i]] += m_pheroImportance / cost;
         }
     }
 
@@ -401,7 +400,7 @@ public class MMASAntColony : AntColony
 {
     // Number of iterations required for "stagnation" to be determined to have occurred.
     private readonly int m_maxStagnantIterations;
-    private int m_stagnantIterations;
+    private int m_stagnantCount;
 
     private List<int> m_iterationBest;
     private float m_iterationBestCost;
@@ -412,8 +411,11 @@ public class MMASAntColony : AntColony
         m_iterationBest = new List<int>();
         m_iterationBestCost = float.PositiveInfinity;
 
-        m_stagnantIterations = 0;
-        m_maxStagnantIterations = settings.maxStagnantIterations;
+        m_pheroMin = settings.pheroMin;
+        m_pheroMax = settings.pheroMax;
+
+        m_stagnantCount = 0;
+        m_maxStagnantIterations = settings.stagnantCountMax;
     }
 
 
@@ -438,16 +440,16 @@ public class MMASAntColony : AntColony
         // If there has been no fittest for a while, the search space is stagnant,
         // reinitialise pheromone values to their maximum value.
         if (isFittest)
-            m_stagnantIterations = 0;
+            m_stagnantCount = 0;
         else
         {
-            m_stagnantIterations++;
-            if (m_stagnantIterations >= m_maxStagnantIterations)
+            m_stagnantCount++;
+            if (m_stagnantCount >= m_maxStagnantIterations)
             {
                 if (!m_suppressPrints) Console.WriteLine("Stagnant!");
 
                 InitialisePheromone();
-                m_stagnantIterations = 0;
+                m_stagnantCount = 0;
             }
         }
 
@@ -466,8 +468,6 @@ public class MMASAntColony : AntColony
 
     protected override void UpdatePheromone()
     {
-        EvaporatePheromone();
-
         // Only add pheromone for the global best path and iteration best path
         if (m_currentFittest.Count > 0)
             AddPheromone(m_currentFittest);

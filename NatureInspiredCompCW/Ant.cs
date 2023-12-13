@@ -8,6 +8,7 @@ public class Ant
 {
     private readonly int m_id; // Used for debugging purposes
     private readonly int m_startVertex; // The first and last vertex the ant goes to.
+    private readonly Func<float, float> m_heuristic;
 
     private AntColony m_colony; // Reference to the colony which instantiated this ant.
     private List<int> m_currentPath; // (C) The current path of the ant.
@@ -30,12 +31,13 @@ public class Ant
     }
 
 
-    public Ant(AntColony colony, int id, int startVertex)
+    public Ant(AntColony colony, int id, int startVertex, Func<float, float> heuristic)
     {
         m_id = id;
         m_colony = colony;
         m_startVertex = startVertex;
         m_currentPath = new() { m_startVertex };
+        m_heuristic = heuristic;
     }
 
 
@@ -57,54 +59,11 @@ public class Ant
         // beta = "probability desirability exponent"
 
         int currentVertex = m_currentPath[^1]; // i (Last entry in list)
-
-        // pheroArr[j] = tau[i,j]^alpha (To save multiple exponentation operations)
-        float[] pheroArr = new float[m_colony.numVertices];
-        // desirabilityArr[j] = eta[i,j]^beta (To save multiple exponentation operations)
-        float[] desirabilityArr = new float[m_colony.numVertices];
-        // The denominator of the probability equation above.
-        float sum = 0;
-
-        // Fill out the pheromone and desirability arrays
-        for (int j = 0; j < m_colony.numVertices; j++)
-        {
-            // Get the pheromone and distance for edge [i,j]
-            float phero = m_colony.pheroMatrix[currentVertex, j]; // tau[i,j]
-            float dist = m_colony.distMatrix[currentVertex, j]; // D[i,j]
-
-            // If: Travelling an edge which goes nowhere
-            // Or: Visiting a previously visited vertex
-            if (currentVertex == j || m_currentPath.Contains(j))
-            {
-                // Set both values to 0, so there is no chance of selection p[i,j] = 0 / denom = 0
-                pheroArr[j] = 0;
-                desirabilityArr[j] = 0;
-                continue;
-            }
-
-            // Fill in values for tau and eta, and add to the sum.
-            pheroArr[j] = MathF.Pow(phero, m_colony.probPheroExponent);
-            desirabilityArr[j] = MathF.Pow(1 / dist, m_colony.probDesirabilityExponent);
-            sum += pheroArr[j] * desirabilityArr[j];
-        }
-
-        if (sum == 0 && (m_currentPath.Count < m_colony.numVertices))
-        {
-            throw new Exception("No valid vertices to go to next, likely due to multiple pheromone trails of 0 intensity." +
-                "The assigned pheromone evaporation rate is too high.");
-        }
-
-        // Calculate probability for all edges, store in an array
-        float[] nextVertexProb = new float[m_colony.numVertices];
-        for (int i = 0; i < m_colony.numVertices; i++)
-        {
-            nextVertexProb[i] = pheroArr[i] * desirabilityArr[i] / sum;
-        }
-
+        float[] nextVertexProb = GetProbabilityArray(currentVertex);
 
         // Randomly select one of the edges based on their probability.
-        // -- Random value in the range [0, 1)
-        float randomValue = m_colony.rand.NextSingle();
+        // -- Random value in the range [10e-6f, 1)
+        float randomValue = float.Max(m_colony.rand.NextSingle(), 10e-6f);
 
         // -- Add the probabilities to a sum until that sum is greater than the random value.
         // -- The vertex whose probability was just added is then selected.
@@ -146,7 +105,8 @@ public class Ant
                     {
                         selectedVertex = v;
 
-                        // Break the loop and exit this if-statement
+                        // Break the loop and exit this if-statement so the starting vertex isn't
+                        // added onto the end.
                         goto add_vertex;
                     }
                 }
@@ -155,15 +115,6 @@ public class Ant
 
             // --- Finish the tour with the start vertex - the tour has to travel back to the start.
             m_currentPath.Add(m_startVertex);
-
-            // --- Display the path and cost for debugging purposes
-            //Console.WriteLine($"Ant {m_id} finished its path:");
-            //for (int i = 0; i < m_currentPath.Count; i++)
-            //{
-            //    Console.WriteLine($"\tVertex {m_currentPath[i]}");
-            //}
-            //Console.WriteLine($"Ant {m_id} path fitness: {m_colony.CalculateCost(m_currentPath)}");
-
             return;
         }
 
@@ -182,6 +133,55 @@ public class Ant
         m_recursionDepth++;
         Traverse();
         m_recursionDepth--;
+    }
+
+
+    private float[] GetProbabilityArray(int currentVertex)
+    {
+        // pheroArr[j] = tau[i,j]^alpha (To save multiple exponentation operations)
+        float[] pheroArr = new float[m_colony.numVertices];
+        // desirabilityArr[j] = eta[i,j]^beta (To save multiple exponentation operations)
+        float[] desirabilityArr = new float[m_colony.numVertices];
+        // The denominator of the probability equation above.
+        float sum = 0;
+
+        // Fill out the pheromone and desirability arrays
+        for (int j = 0; j < m_colony.numVertices; j++)
+        {
+            // Get the pheromone and distance for edge [i,j]
+            float phero = m_colony.pheroMatrix[currentVertex, j]; // tau[i,j]
+            float dist = m_colony.distMatrix[currentVertex, j]; // D[i,j]
+
+            // If: Travelling an edge which goes nowhere
+            // Or: Visiting a previously visited vertex
+            if (currentVertex == j || m_currentPath.Contains(j))
+            {
+                // Set both values to 0, so there is no chance of selection p[i,j] = 0 / denom = 0
+                pheroArr[j] = 0;
+                desirabilityArr[j] = 0;
+                continue;
+            }
+
+            // Fill in values for tau and eta, and add to the sum.
+            pheroArr[j] = MathF.Pow(phero, m_colony.probPheroExponent);
+            desirabilityArr[j] = MathF.Pow(m_heuristic(dist), m_colony.probDesirabilityExponent);
+            sum += pheroArr[j] * desirabilityArr[j];
+        }
+
+        if (sum == 0 && (m_currentPath.Count != m_colony.numVertices))
+        {
+            throw new Exception("No valid vertices to go to next, likely due to multiple pheromone trails of 0 intensity." +
+                "The assigned pheromone evaporation rate is too high.");
+        }
+
+        // Calculate probability for all edges, store in an array
+        float[] nextVertexProb = new float[m_colony.numVertices];
+        for (int i = 0; i < m_colony.numVertices; i++)
+        {
+            nextVertexProb[i] = pheroArr[i] * desirabilityArr[i] / sum;
+        }
+
+        return nextVertexProb;
     }
 
 

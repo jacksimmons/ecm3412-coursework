@@ -9,15 +9,8 @@ partial class Program
     // The name (+ extension) of the file (TSPLIB, .xml) to run the algorithm on.
     private const string filename = "Burma.xml";
 
-    // Number of steps for each experiment. The higher this is, the longer execution will take,
-    // but the higher the accuracy of the optimal value of each parameter.
-    private const int numExperimentSteps = 10;
-
-    // Number of parallel runs of the algorithm.
-    private const int numAlgorithms = 16;
-
-    // Settings for the algorithm. Note that altering these will affect experiments.
-    private static readonly ACOSettings settings = new()
+    // Default settings, which are used for experiments.
+    private static readonly ACOSettings defaultSettings = new()
     {
         variation = ACOVariation.Standard,
 
@@ -26,21 +19,52 @@ partial class Program
         numAnts = 100,
         requiredIterations = 100,
 
-        pheroRandAdd = 0f,
-        pheroRandMult = 1f,
-
         probPheroExponent = 1f,
         probDesirabilityExponent = 1f,
 
+        heuristic = ACOHeuristic.InverseDistance,
+
+        pheroImportance = 0.5f,
         pheroEvapRate = 0.1f,
-        pheroAddRate = 0.5f,
 
         pheroMin = 0.1f,
-        pheroMax = 1.0f,
-        maxStagnantIterations = 10000,
+        pheroMax = 1f,
+        stagnantCountMax = 100,
 
         suppressPrints = true,
     };
+
+    // Custom settings, which are used for custom runs in Main.
+    private static ACOSettings settings = new()
+    {
+        variation = ACOVariation.MMAS,
+
+        startVertex = 0,
+
+        numAnts = 100,
+        requiredIterations = 10000,
+
+        probPheroExponent = 1f,
+        probDesirabilityExponent = 10f,
+
+        heuristic = ACOHeuristic.InverseDistance,
+
+        pheroImportance = 20,
+        pheroEvapRate = 0.45f,
+
+        pheroMin = 0.1f,
+        pheroMax = 10f,
+        stagnantCountMax = 5000,
+
+        suppressPrints = false,
+    };
+
+    // Number of steps for each experiment. The higher this is, the longer execution will take,
+    // but the higher the accuracy of the optimal value of each parameter.
+    private const int numExperimentSteps = 10;
+
+    // Number of parallel runs of the algorithm.
+    private const int numAlgorithms = 16;
 
 
     public static async Task Main()
@@ -53,6 +77,7 @@ partial class Program
 
         // Run a grid search for each parameter in turn
         await RunExperiment(distMatrix);
+        //await RunAlgorithms(defaultSettings, distMatrix);
 
         RunGreedySearch(distMatrix);
 
