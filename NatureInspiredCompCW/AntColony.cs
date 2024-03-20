@@ -30,8 +30,6 @@ public struct ACOSettings
     // Warning: Setting this too high causes a caught error - the pheromone gets so small
     // that it ends up becoming 0.
     public float pheroEvapRate;
-    // The numerator of the value added to pheromone on pheromone updates.
-    public float pheroAddRate;
 
     // Define the range in which pheromone is Clamped.
     public float pheroMin;

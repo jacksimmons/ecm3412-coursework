@@ -1,0 +1,204 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Git\\NatureInspiredCompCW\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{37509C7B-F1CB-461B-867E-BC4C0C124BB8}|NatureInspiredCompCW\\NatureInspiredCompCW.csproj|c:\\git\\natureinspiredcompcw\\natureinspiredcompcw\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{37509C7B-F1CB-461B-867E-BC4C0C124BB8}|NatureInspiredCompCW\\NatureInspiredCompCW.csproj|solutionrelative:natureinspiredcompcw\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{37509C7B-F1CB-461B-867E-BC4C0C124BB8}|NatureInspiredCompCW\\NatureInspiredCompCW.csproj|c:\\git\\natureinspiredcompcw\\natureinspiredcompcw\\program_experiment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{37509C7B-F1CB-461B-867E-BC4C0C124BB8}|NatureInspiredCompCW\\NatureInspiredCompCW.csproj|solutionrelative:natureinspiredcompcw\\program_experiment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{37509C7B-F1CB-461B-867E-BC4C0C124BB8}|NatureInspiredCompCW\\NatureInspiredCompCW.csproj|c:\\git\\natureinspiredcompcw\\natureinspiredcompcw\\antcolony.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{37509C7B-F1CB-461B-867E-BC4C0C124BB8}|NatureInspiredCompCW\\NatureInspiredCompCW.csproj|solutionrelative:natureinspiredcompcw\\antcolony.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{37509C7B-F1CB-461B-867E-BC4C0C124BB8}|NatureInspiredCompCW\\NatureInspiredCompCW.csproj|c:\\git\\natureinspiredcompcw\\natureinspiredcompcw\\ant.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{37509C7B-F1CB-461B-867E-BC4C0C124BB8}|NatureInspiredCompCW\\NatureInspiredCompCW.csproj|solutionrelative:natureinspiredcompcw\\ant.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{37509C7B-F1CB-461B-867E-BC4C0C124BB8}|NatureInspiredCompCW\\NatureInspiredCompCW.csproj|c:\\git\\natureinspiredcompcw\\natureinspiredcompcw\\xml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{37509C7B-F1CB-461B-867E-BC4C0C124BB8}|NatureInspiredCompCW\\NatureInspiredCompCW.csproj|solutionrelative:natureinspiredcompcw\\xml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{37509C7B-F1CB-461B-867E-BC4C0C124BB8}|NatureInspiredCompCW\\NatureInspiredCompCW.csproj|c:\\git\\natureinspiredcompcw\\natureinspiredcompcw\\brazil.xml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{37509C7B-F1CB-461B-867E-BC4C0C124BB8}|NatureInspiredCompCW\\NatureInspiredCompCW.csproj|solutionrelative:natureinspiredcompcw\\brazil.xml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{37509C7B-F1CB-461B-867E-BC4C0C124BB8}|NatureInspiredCompCW\\NatureInspiredCompCW.csproj|c:\\git\\natureinspiredcompcw\\natureinspiredcompcw\\greedy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{37509C7B-F1CB-461B-867E-BC4C0C124BB8}|NatureInspiredCompCW\\NatureInspiredCompCW.csproj|solutionrelative:natureinspiredcompcw\\greedy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{37509C7B-F1CB-461B-867E-BC4C0C124BB8}|NatureInspiredCompCW\\NatureInspiredCompCW.csproj|c:\\git\\natureinspiredcompcw\\natureinspiredcompcw\\readme.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{37509C7B-F1CB-461B-867E-BC4C0C124BB8}|NatureInspiredCompCW\\NatureInspiredCompCW.csproj|solutionrelative:natureinspiredcompcw\\readme.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{37509C7B-F1CB-461B-867E-BC4C0C124BB8}|NatureInspiredCompCW\\NatureInspiredCompCW.csproj|c:\\git\\natureinspiredcompcw\\natureinspiredcompcw\\notes_brazil.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{37509C7B-F1CB-461B-867E-BC4C0C124BB8}|NatureInspiredCompCW\\NatureInspiredCompCW.csproj|solutionrelative:natureinspiredcompcw\\notes_brazil.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{37509C7B-F1CB-461B-867E-BC4C0C124BB8}|NatureInspiredCompCW\\NatureInspiredCompCW.csproj|c:\\git\\natureinspiredcompcw\\natureinspiredcompcw\\notes_burma.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{37509C7B-F1CB-461B-867E-BC4C0C124BB8}|NatureInspiredCompCW\\NatureInspiredCompCW.csproj|solutionrelative:natureinspiredcompcw\\notes_burma.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 224,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program_Experiment.cs",
+              "DocumentMoniker": "C:\\Git\\NatureInspiredCompCW\\NatureInspiredCompCW\\Program_Experiment.cs",
+              "RelativeDocumentMoniker": "NatureInspiredCompCW\\Program_Experiment.cs",
+              "ToolTip": "C:\\Git\\NatureInspiredCompCW\\NatureInspiredCompCW\\Program_Experiment.cs",
+              "RelativeToolTip": "NatureInspiredCompCW\\Program_Experiment.cs",
+              "ViewState": "AQIAAEAAAAAAAAAAAAAAAIIAAAAbAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-12-13T00:11:06.527Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Git\\NatureInspiredCompCW\\NatureInspiredCompCW\\Program.cs",
+              "RelativeDocumentMoniker": "NatureInspiredCompCW\\Program.cs",
+              "ToolTip": "C:\\Git\\NatureInspiredCompCW\\NatureInspiredCompCW\\Program.cs",
+              "RelativeToolTip": "NatureInspiredCompCW\\Program.cs",
+              "ViewState": "AQIAAB4AAAAAAAAAAAASwEIAAAApAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-12-12T16:14:08.029Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AntColony.cs",
+              "DocumentMoniker": "C:\\Git\\NatureInspiredCompCW\\NatureInspiredCompCW\\AntColony.cs",
+              "RelativeDocumentMoniker": "NatureInspiredCompCW\\AntColony.cs",
+              "ToolTip": "C:\\Git\\NatureInspiredCompCW\\NatureInspiredCompCW\\AntColony.cs",
+              "RelativeToolTip": "NatureInspiredCompCW\\AntColony.cs",
+              "ViewState": "AQIAAE4AAAAAAAAAAAAAANwAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-20T23:36:46.681Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Ant.cs",
+              "DocumentMoniker": "C:\\Git\\NatureInspiredCompCW\\NatureInspiredCompCW\\Ant.cs",
+              "RelativeDocumentMoniker": "NatureInspiredCompCW\\Ant.cs",
+              "ToolTip": "C:\\Git\\NatureInspiredCompCW\\NatureInspiredCompCW\\Ant.cs",
+              "RelativeToolTip": "NatureInspiredCompCW\\Ant.cs",
+              "ViewState": "AQIAAEUAAAAAAAAAAAAAABQAAAAHAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-28T12:16:22.597Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Brazil.xml",
+              "DocumentMoniker": "C:\\Git\\NatureInspiredCompCW\\NatureInspiredCompCW\\Brazil.xml",
+              "RelativeDocumentMoniker": "NatureInspiredCompCW\\Brazil.xml",
+              "ToolTip": "C:\\Git\\NatureInspiredCompCW\\NatureInspiredCompCW\\Brazil.xml",
+              "RelativeToolTip": "NatureInspiredCompCW\\Brazil.xml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003576|",
+              "WhenOpened": "2024-02-28T16:07:38.193Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Greedy.cs",
+              "DocumentMoniker": "C:\\Git\\NatureInspiredCompCW\\NatureInspiredCompCW\\Greedy.cs",
+              "RelativeDocumentMoniker": "NatureInspiredCompCW\\Greedy.cs",
+              "ToolTip": "C:\\Git\\NatureInspiredCompCW\\NatureInspiredCompCW\\Greedy.cs",
+              "RelativeToolTip": "NatureInspiredCompCW\\Greedy.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-12-09T12:28:47.793Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Xml.cs",
+              "DocumentMoniker": "C:\\Git\\NatureInspiredCompCW\\NatureInspiredCompCW\\Xml.cs",
+              "RelativeDocumentMoniker": "NatureInspiredCompCW\\Xml.cs",
+              "ToolTip": "C:\\Git\\NatureInspiredCompCW\\NatureInspiredCompCW\\Xml.cs",
+              "RelativeToolTip": "NatureInspiredCompCW\\Xml.cs",
+              "ViewState": "AQIAAFEAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-20T23:37:50.242Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "notes_burma.txt",
+              "DocumentMoniker": "C:\\Git\\NatureInspiredCompCW\\NatureInspiredCompCW\\notes_burma.txt",
+              "RelativeDocumentMoniker": "NatureInspiredCompCW\\notes_burma.txt",
+              "ToolTip": "C:\\Git\\NatureInspiredCompCW\\NatureInspiredCompCW\\notes_burma.txt",
+              "RelativeToolTip": "NatureInspiredCompCW\\notes_burma.txt",
+              "ViewState": "AQIAAC0AAAAAAAAAAAAAAHIAAAAtAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2023-12-09T22:39:53.665Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "README.txt",
+              "DocumentMoniker": "C:\\Git\\NatureInspiredCompCW\\NatureInspiredCompCW\\README.txt",
+              "RelativeDocumentMoniker": "NatureInspiredCompCW\\README.txt",
+              "ToolTip": "C:\\Git\\NatureInspiredCompCW\\NatureInspiredCompCW\\README.txt",
+              "RelativeToolTip": "NatureInspiredCompCW\\README.txt",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAACcAAAANAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2023-12-13T00:51:07.056Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "notes_brazil.txt",
+              "DocumentMoniker": "C:\\Git\\NatureInspiredCompCW\\NatureInspiredCompCW\\notes_brazil.txt",
+              "RelativeDocumentMoniker": "NatureInspiredCompCW\\notes_brazil.txt",
+              "ToolTip": "C:\\Git\\NatureInspiredCompCW\\NatureInspiredCompCW\\notes_brazil.txt",
+              "RelativeToolTip": "NatureInspiredCompCW\\notes_brazil.txt",
+              "ViewState": "AQIAAB4AAAAAAAAAAAAAADUAAAAZAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2023-12-09T22:40:04.093Z"
+            }
+          ]
+        },
+        {
+          "DockedWidth": 176,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:19:0:{34c7837f-3b3a-449c-bdf0-bdad86cbaf4a}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:7:0:{34c7837f-3b3a-449c-bdf0-bdad86cbaf4a}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("NatureInspiredCompCW")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1304bb16d4047911f7a1b802d2d8095597072643")]
 [assembly: System.Reflection.AssemblyProductAttribute("NatureInspiredCompCW")]
 [assembly: System.Reflection.AssemblyTitleAttribute("NatureInspiredCompCW")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
